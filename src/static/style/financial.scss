@@ -1,0 +1,76 @@
+@import 'b.config';
+.fixed{
+	bottom: 0;
+}
+.box100{
+	width: 100%;
+	box-sizing: border-box;
+}
+.credit-card{
+	display: block;
+	color: $mbg;
+	font-size: $fzl;
+	margin-bottom: $mb;
+	padding: .2rem .3rem .3rem;
+	background-color: #3a9be4;
+	& > span{
+		font-size: .24rem;
+	}
+	& > div {
+		font-size: .4rem;
+		margin-top: $mb;
+		span{
+			margin-right: .5rem;
+		}
+	}
+	.icon{
+		display: inline-block;
+		width: .48rem;height: .48rem;
+		vertical-align: middle;
+		margin-right: .2rem;
+		border-radius: 100%;
+		background: $mbg url('../../static/images/banks/js.png') center center no-repeat;
+		background-size: .32rem;
+	}
+	&.js{
+		background-color: #3a9be4;
+		.icon{
+			background: $mbg url('../../static/images/banks/js.png') center center no-repeat;
+			background-size: .32rem;
+		}
+	}
+	&.zs{
+		background-color: #ef2a4f;
+		.icon{
+			background: $mbg url('../../static/images/banks/zs.png') center center no-repeat;
+			background-size: .32rem;
+		}
+	}
+	&.ny{
+		background-color: #30cab0;
+		.icon{
+			background: $mbg url('../../static/images/banks/ny.png') center center no-repeat;
+			background-size: .32rem;
+		}
+	}
+	&.gs{
+		background-color: #f34141;
+		.icon{
+			background: $mbg url('../../static/images/banks/gs.png') center center no-repeat;
+			background-size: .32rem;
+		}
+	}
+}
+/*提现管理 */
+.cash-desc{
+	text-align: center;
+	span{
+		display: inline-block;
+		padding-left: .4rem;
+		margin: 0 .2rem;
+		&.l1{
+			background: url('../../static/images/b/right.png') left center no-repeat;
+			background-size: .32rem;	
+		}
+	}
+}

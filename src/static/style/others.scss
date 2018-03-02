@@ -1,0 +1,149 @@
+@import 'b.config';
+.bdt{
+    border-top: 1px solid $bdColor;
+}
+/*
+员工管理 角色管理  设置 
+ */
+.section{
+	padding-top: 0;
+}
+/*首页列表*/
+.list{
+	li:nth-child(1){
+		.item{
+			border-top: 0;
+		}
+	}
+	.item{
+		@extend .bdt;
+		display: block;
+		color: inherit;
+		background: url('/static/images/b/arrow_right.png') right center no-repeat;
+		background-size: .12rem;
+		height: 1.08rem; line-height: 1.08rem;
+		img{
+			display: inline-block;
+			padding: .24rem 0;
+			margin-right: .2rem;
+			width: .6rem;height: .6rem;border-radius: 100%;
+			vertical-align: middle;
+		}
+		.role{
+			display: inline-block;
+			padding: 0 .2rem;
+			border-radius: .3rem;
+			background-color: $color;
+			font-size: .2rem;line-height: .32rem;
+			color: $mbg; vertical-align: middle;
+		}
+	}
+	.nomore{
+		@extend .bdt;
+		display: block;
+		color: inherit;
+		height: 1.08rem; line-height: 1.08rem;
+	}
+}
+/*角色首页以及设置首页 行高更小*/
+.list2{
+	.item{
+		height: .8rem;line-height: .8rem;
+	}
+}
+/*编辑页面列表内容*/
+.required{
+	color: $color2;
+}
+.list-required{
+	li{
+		@extend .bdt;
+		position: relative;
+		padding: .25rem 0;
+		&:nth-child(1){
+			border-top: 0;
+		}
+		& > span{
+			display: inline-block;width: 5.3rem;
+			height: .2rem;
+		}
+	}
+	label{
+		margin-right: .35rem;
+		color: $color3;
+	}
+	span{
+		color: #ccc;
+	}
+	.h{
+		color: $color2;
+	}
+	input{
+		font-size: inherit;
+		width: 2rem;
+	}
+	.triangle{
+		position: absolute;right: 0;top: .4rem;
+	}
+	.error{
+		color: #c00;
+	}
+}
+ /*权限框*/
+.permission{
+	display: flex;
+	flex-wrap: wrap;
+	.item{
+		margin: .1rem auto;
+	}
+}
+input[type="checkbox"], input[type="radio"]{
+	opacity: 0;
+	display: none;
+	& + i{
+		display: inline-block;
+		width: .32rem;height: .32rem;
+		border-radius: 100%;
+		border: 1px solid $bdColor;
+		vertical-align: middle;
+	}
+	&:checked{
+		& + i{
+			border-color: #49d163;
+			background: url('/static/images/b/right.png') center center no-repeat;
+			background-size: .32rem;
+		}
+	}
+}
+/*上传*/
+.upload{
+	width: 2.7rem;height: 1.8rem;
+	margin-top: .1rem;
+	background: #e5e5e5 url('/static/images/b/upload.png') center center no-repeat;
+	background-size: .8rem;
+}
+.upload-box{
+	position: relative;
+	input[type="file"]{
+		position: absolute;
+		left: 0; top: 0;
+		width: 100%; height: 100%;
+		opacity: 0;
+	}
+	.imgloading{
+		position: absolute;left: 50%;top: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+/*大段文字*/
+.textarea{
+	margin-top: .1rem;
+	box-sizing: border-box;
+	padding: .1rem;
+	width: 100%;height: 3rem;
+	border: 1px solid $bdColor;
+	textarea{
+		width: 100%;height: 100%;
+		font-size: inherit;
+	}
+}

@@ -1,0 +1,89 @@
+<style lang="scss">
+	.mint-indexsection > ul{
+		background-color: #fff;
+		li{
+			padding-left: .2rem;
+			line-height: .9rem;
+		}
+	}
+</style>
+<template>
+	<div class="brand">
+		<carTitle :configTitle="configTitle"></carTitle>
+		<mt-index-list>
+	        <mt-index-section v-for="(item, index) in alphabet" :key="index" :index="item.initial">
+	            <li v-for="(cell, index) in item.cells" :key="index" :title="cell.abbr">{{ cell.name }}</li>
+	        </mt-index-section>
+	    </mt-index-list>
+	</div>
+</template>
+<script>
+	import { mapGetters, mapActions } from 'vuex'
+	import carTitle from '@/components/b/title'
+	import { IndexList, IndexSection } from 'mint-ui';
+	import  Pinyin  from '@/service/pinyin';
+
+	const NAMES = ['阿雅', '百合', '章三', 'Baldwin', '沉思', 'Carl', 'Chandler', 'Clyde', 'David', 'Edgar', 'Elton', 'Floyd', 'Freeman', 'Gavin', 'Hector', 'Henry', 'Ian', 'Jason', 'Joshua', 'Kane', 'Lambert', 'Matthew', 'Morgan', 'Neville', 'Oliver', 'Oscar', 'Perry', 'Quinn', 'Ramsey', 'Scott', 'Seth', 'Spencer', 'Timothy', 'Todd', 'Trevor', 'Udolf', 'Victor', 'Vincent', 'Walton', 'Willis', 'Xavier', 'Yvonne', 'Zack', 'Zane', '233', '#34s','%w2'];
+
+	
+
+	export default {
+		data(){
+			return {
+				configTitle: { 
+	                title: '品牌',
+	                fclick: false
+	            },
+	            alphabet: []
+			}
+		},
+		created(){
+			let self = this;
+			this.Get('api/brand').then(res=>{
+				console.log('res:', res);
+			})
+		    
+			this.init();
+		},
+		methods:{
+			init(){
+				let pinyin = new Pinyin();
+			    let newobj = [];
+			    NAMES.map(item=>{
+			    	let tt = pinyin.getFullChars(item);
+			    	newobj.push({name: item, abbr: tt});
+			    });
+			    console.log(newobj);
+			    let zm = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			    let other = [], hash={};
+			    zm.split('').map(initial => {
+			        let cells = newobj.filter(item => {
+			        	if(item.abbr[0] === initial){ 
+			        		return item;
+			        	}else{
+			        		// 处理首字母不在字母表的数据
+			        		let re = zm.match(item.abbr[0]);
+			        		if(!re && hash[item.abbr]!=1){
+			        			console.log('re:', re);
+			        			other.push(item);
+			        			hash[item.abbr] = 1;
+			        			
+			        		}
+			        	}
+			        });
+			        this.alphabet.push({
+			          initial,
+			          cells
+			        });
+			    });
+			    this.alphabet.push({
+			    	initial:'#',
+			    	cells: other
+			    })
+			},
+		},
+		components:{
+			carTitle, 'mt-index-list': IndexList, 'mt-index-section': IndexSection
+		}
+	}
+</script>

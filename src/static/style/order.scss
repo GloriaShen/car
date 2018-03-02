@@ -1,0 +1,65 @@
+@import 'b.config';
+.order{
+	position: relative;
+	padding-bottom: .05rem;
+}
+.order-section{
+	padding: 0 .25rem;
+	margin-bottom: $mb;
+	background-color: $mbg;
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+
+/*订单详情*/
+.lritem{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color:#808080;
+	line-height: .5rem;
+	div:nth-child(2){
+		text-align: right;
+	}
+	.dark{
+		color: $mcolor;
+	}
+	.light{
+		color: $color2;
+	}
+	.grey{
+		color: $color3;
+	}
+	span{
+		display: block;
+	}
+	.ib{
+		display: inline-block;
+	}
+	.order-num{
+		display: inline-block;
+		font-size: .24rem;
+	}
+}
+
+/*日月周统计导航栏*/
+.count-navs{
+	position: absolute;
+	top: 1.78rem;left: 0;z-index: 10;
+	display: flex;justify-content: space-between;align-items: center;
+	width: 100%;padding: .32rem .25rem;
+	line-height: .56rem;
+	background: $mbg;
+	.nav{
+		display: inline-block;
+		padding: 0 .4rem;
+		color: $mcolor;
+		border: 1px solid $mbg;
+		border-radius: .3rem;
+		&.active{
+			color: $color;
+			border-color: $color;
+		}
+	}
+}

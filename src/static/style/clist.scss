@@ -1,0 +1,71 @@
+@import 'b.config';
+.clist{
+	li{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid $bdColor;
+		padding: .1rem 0 .12rem;
+		a{
+			display: inline-block;vertical-align: middle;
+		}
+		&:last-child{
+			border-bottom: 0;
+		}
+		.title{
+			color: $mcolor;
+		}
+		.ver-middle{
+			display: flex;
+			flex-flow: column wrap;
+			justify-content: center;
+		}
+		.tips{
+			display: inline-block;
+			padding: 0 .1rem; margin-left: .1rem;
+			height: .32rem;line-height: .32rem;
+			font-size: .2rem;color: #fff;
+			border-radius: .2rem;
+			background-color: #ff5e29;
+			&.tipsSTANDBY{
+				/*red*/
+				background-color: #ff5e29;
+			}
+			&.tipsSERVICED, &.tipsPAYING{
+				/*blue*/
+				background-color: #14b6f6;
+			}
+			&.tipsPAID{
+				/*orange*/
+				background-color: #ffb72c;
+			}
+			&.tipsEVALUATED{
+				/*green*/
+				background-color: #4bd265;
+			}
+		}
+		.ino{
+			display: block;
+			font-size: .2rem;
+		}
+		.l{
+			& > div{
+				display: inline-block;vertical-align: middle;
+			}
+		}
+		.r{
+			text-align: right;
+			span{
+				display: block;
+			}
+		}
+		.shine{
+			color:$color2;
+		}
+		.time{
+			color: $color3;
+			font-size: .2rem;
+			white-space: nowrap;
+		}
+	}
+}

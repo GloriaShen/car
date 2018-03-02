@@ -1,0 +1,29 @@
+/*高亮颜色*/
+$mcolor: #333; /* 主色 */
+$color: #14b6f6; /*蓝色*/
+$color2: #ff5c26; /*橙色*/
+$color3: #808080; /*灰色*/
+/*边线颜色*/
+$bdColor: #e6e6e6;
+/*模块背景色*/
+$mbg: #fff;
+/*模块间距，上下*/
+$mb: .2rem;
+/*字体大小*/
+$fz: .28rem;
+$fzl: .32rem;
+
+@mixin triangle($w:.12rem, $color: #333){
+    display: inline-block;
+    width: 0;height: 0;
+    border-width:$w $w 0;
+    border-style:solid;
+    border-color:$color transparent transparent;
+    margin: 0 0 0 .1rem;
+    vertical-align: middle;
+}
+.lritem{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

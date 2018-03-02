@@ -1,0 +1,290 @@
+@import 'b.config';
+/*公共模块*/
+.cxh{
+    padding-top: .85rem;
+}
+.financial{
+     padding-top: .85rem;
+}
+.pt{
+    padding-top: 1.77rem;
+}
+.noData{
+    padding: .25rem 0;
+    color: #aaa;
+}
+.section{
+    /*padding: 0 .25rem;*/
+    padding: .25rem;
+    margin-bottom: $mb;
+    background-color: $mbg;
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+.section-nbg{
+    padding: 0 .25rem;
+    margin-bottom: $mb;
+}
+.order-section{
+    border-top:1px solid $bdColor;
+}
+
+.pb{
+    padding-bottom: $mb;
+}
+.bold{
+    font-weight: 500;
+}
+@mixin triangle($w:.12rem, $color: #333){
+    display: inline-block;
+    width: 0;height: 0;
+    border-width:$w $w 0;
+    border-style:solid;
+    border-color:$color transparent transparent;
+    margin: 0 0 0 .1rem;
+    vertical-align: middle;
+}
+.triangle{
+    @include triangle();
+}
+.active .triangle{
+    @include triangle(.12rem, #14b6f6);
+}
+.top-fixed{
+    position: fixed;left: 0;top: 0;
+    width: 100%;z-index: 20;
+}
+/* add by friday*/
+.mtitle{
+    .st{
+        background: url('/static/images/b/arrow_right.png') right center no-repeat;
+        background-size: .12rem;
+    }
+}
+.back{
+    background: url('/static/images/b/arrow_left.png') center center no-repeat;
+    background-size: .2rem;
+}
+.average-navs{
+    &, & + .mask{
+        top: 1.8rem;
+    }
+}
+/*水平均分*/
+.average{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: .25rem 0;
+    .item{
+        color: inherit;
+        &.active{
+            color: $color2;
+        }
+        span{
+            display: block;
+            font-weight: 600;
+            font-size: .48rem;
+        }
+    }
+}
+/*固定间距*/
+.block{
+    width: 100%;height: $mb;
+}
+/*固定顶线*/
+.bdt{
+    border-top: 1px solid $bdColor;
+}
+@mixin block($height: $mb, $line:0, $bottom: 0) { 
+    width: 100%; height: $height;
+    border-bottom: $line solid $bdColor;
+    margin-bottom: $bottom;
+}
+/*带横线的分割间距*/
+.bdline{
+    @include block(.24rem, .01rem, .24rem);
+    width: 200%;
+    transform: scale(.5) translateX(-50%);
+}
+/*迷你按钮*/
+.xsbtn{
+    display: inline-block;
+    padding: 0 .05rem;
+    margin-left: .1rem;
+    font-size: .2rem;line-height: .3rem;
+    color:inherit;
+    border: 1px solid $bdColor;
+    border-radius: .05rem;
+    background: none;
+}
+/*通栏按钮*/
+.btn100{
+    display: block;
+    width: 100%;height: .88rem;line-height: .88rem;
+    background-color: $color;
+    color: #fff;text-align: center;font-size: .32rem;
+}
+.fixed{
+    position: fixed;left: 0;bottom: .85rem;
+}
+.radius{
+    border-radius: .1rem;
+    margin-top: .6rem;
+}  
+/*主标题*/
+.header{
+    position: relative;z-index: 10;
+    line-height: .85rem;
+    font-size: .36rem;text-align: center;font-weight: 700;
+    background: #fff;
+}
+.title{
+    height: .85rem;font-size: inherit;
+    i{
+        @include triangle();
+    }
+}
+/*遮罩*/
+.mask{
+    position: fixed;
+    top: 3rem;left: 0;z-index: 8;
+    width: 100%;height: 100%;
+    background: rgba(0,0,0,.5);
+}
+/*标题组 带不带左边线可设置 mTitle模块*/
+.mtitle{
+    position: relative;z-index: 3;
+    height: .34rem;line-height: .34rem;
+    padding: .35rem 0 .62rem 0;
+    font-size: .32rem;
+    border-bottom: 1px solid $bdColor;
+    background-color: $mbg;
+    &.bl{
+        padding: .35rem 0 .62rem .2rem;
+    }
+    &.bl:before{
+        display: inline-block;
+        position: absolute;left: 0;top: .35rem;
+        content: '';
+        width: .06rem;
+        height: .34rem;
+        background-color: #0db4f6;
+    }
+    .title{
+        color: inherit;
+    }
+    .st{
+        display: inline-block;
+        padding-right: .2rem;
+        position: absolute;right: 0;
+        font-size: .24rem;color: inherit;
+        /*background: url('../images/b/arrow_right.png') right center no-repeat;
+        background-size: .12rem;*/
+        &.noarrow{
+            background: none; padding-right: 0;
+        }
+    }
+}
+/*subTitle 模块*/
+.sub-navs{
+    background-color: $mbg;
+    font-size: .32rem;
+    text-align: center;
+    border-top: 1px solid $bdColor;
+    .nav{
+        display: inline-block;
+        padding: 0 .28rem;
+        margin: 0 .35rem;
+        color: inherit;
+        border-bottom:.06rem solid $mbg;
+        &.active{
+            color: $color;
+            border-bottom-color: $color;
+        }
+    }
+}
+/*标题右方链接*/
+.title-link{
+    position: absolute;right: .2rem;top: 0;z-index: 11;
+    line-height: .85rem;
+    font-size: .32rem;color: $mcolor;
+}
+/*返回*/
+.back{
+    position: absolute;left: 0;top: 0;
+    display: inline-block;height: .85rem;
+    width: .7rem;
+}
+/*回到原生页面*/
+.back2home{
+    position: absolute;left: 0;top: 0;z-index: 10;
+    display: inline-block;height: .85rem;line-height: .85rem;
+    padding: 0 .1rem;
+    font-size: .32rem;
+    background-color: #fff;
+}
+/*水平均分 231 ／ 已完成 */
+.average{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: .25rem 0;
+    .item{
+        color: inherit;
+        &.active{
+            color: $color2;
+        }
+        span{
+            display: block;
+            font-weight: 600;
+            font-size: .36rem;
+        }
+    }
+}
+/*行均分模块 纯子导航 */
+.average-navs{
+    position: absolute;top: .85rem;left: 0;
+    width: 100%;z-index: 10;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: .25rem 0;
+    color: $mcolor;
+    background-color: $mbg;
+    a, .item{
+        display: inline-block;
+        padding: 0 .2rem;
+        color: inherit;
+        border: 1px solid $mbg;
+        border-radius: .3rem;
+    }
+    .active{
+        border: 1px solid $color;
+        color: $color;
+    }
+    & + .mask{
+        top: .85rem;
+    }
+}
+/*按钮*/
+@mixin btn($h: .56rem, $p: .1rem, $bg: $color, $color: $mbg){
+    display: inline-block;
+    height: $h; line-height: $h;
+    padding:  0 $p;
+    background-color: $bg;
+    color: $color;
+    text-align: center;
+    border-radius: .1rem;
+}
+.btn{
+    @include btn();
+}
+.loadmore-wrapper {
+    overflow: scroll
+}
